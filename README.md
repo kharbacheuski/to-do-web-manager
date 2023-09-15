@@ -51,3 +51,5 @@ Web-приложение "Список дел" предназначено для
 6.1 [Frontend](https://github.com/kharbacheuski/to-do-web-manager/tree/main/project-code/client)
 
 6.2 [Backend](https://github.com/kharbacheuski/to-do-web-manager/tree/main/project-code/server)
+
+6.3 [DB](https://github.com/kharbacheuski/to-do-web-manager/tree/main/project-code/data-base)
