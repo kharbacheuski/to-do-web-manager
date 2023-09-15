@@ -8,12 +8,6 @@ class UserService {
         return newUser
     }
 
-    login(input) {
-        const newUser = User.create({...input})
-
-        return newUser
-    }
-
     remove(id) {
         User.destroy({ where: { id: id } }); 
 
