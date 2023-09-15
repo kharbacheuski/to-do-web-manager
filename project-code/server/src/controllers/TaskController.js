@@ -32,6 +32,8 @@ app.delete('/api/task', async (req, res) => {
     try {
         const id = req.body.id;
 
+        console.log(req.body.data)
+
         if(await taskService.isExist(id)) {
             await taskService.delete(id)
 

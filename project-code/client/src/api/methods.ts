@@ -15,30 +15,6 @@ api.interceptors.request.use(
     }
 )
 
-type AuthParams = {
-    username: string,
-    password: string
-}
-
-type LoginAnswer = {
-    user: User,
-    token: string
-}
-
-type User = {
-    id: number,
-    username: string,
-    passwordHash: string
-}
-
-type Task = {
-    id: number,
-    userId: number,
-    title: string,
-    description: string,
-    createdAt: Date
-}
-
 export const method = {
     user: {
         login(data: AuthParams) {
@@ -53,7 +29,7 @@ export const method = {
             return api.get<Task[]>("/task")
         },
         delete(id: string) {
-            return api.delete<{answer: string}>("/task", {params: {id}})
+            return api.delete<{answer: string}>("/task", {data: {id}})
         },
         create(data: Task) {
             return api.post<Task>("/task", {...data})

@@ -7,10 +7,11 @@ export enum AlertTypes {
     success = "success"
 }
 
-export type ErrorType = {
+export type AlertStateType = {
     isVisible: boolean
     message: string
 }
+
 
 export type ConfirmAlertType = {
     isVisible: boolean

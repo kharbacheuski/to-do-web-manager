@@ -13,7 +13,7 @@ class TaskService {
     }
 
     delete(id) {
-        Task.destroy({ where: { id } }); 
+        Task.destroy({ where: { id: id } }); 
 
         return id; 
     }
