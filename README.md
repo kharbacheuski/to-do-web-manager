@@ -36,7 +36,7 @@ Web-приложение "Список дел" предназначено для
 
 #### 4 Схема взаимодействия компонентов проекта:
 
-![scheme](https://preview.redd.it/v56rjkc5z4h81.png?width=1002&format=png&auto=webp&s=6bdaaee06db2e2ba69b724d70181642c34207af1)
+![scheme](https://cdn.yurishwedoff.com/1664606019261.png)
 
 
 #### 5 Диаграммы UML:
