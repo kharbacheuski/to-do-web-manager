@@ -41,10 +41,11 @@ Web-приложение "Список дел" предназначено для
 
 #### 5 Диаграммы UML:
 
-5.1 [Диаграмма классов](https://github.com/kharbacheuski/to-do-web-manager);  
-5.2 [Общая схема работы](https://github.com/kharbacheuski/to-do-web-manager); 
+5.1 [Диаграмма классов](https://github.com/kharbacheuski/to-do-web-manager)
+5.2 [Общая схема работы](https://github.com/kharbacheuski/to-do-web-manager)
 
 
-#### 6 Готовый проект:
+#### 6 Исходный код проекта:
 
-[Исходный код проекта](https://github.com/kharbacheuski/to-do-web-manager). 
+6.1 [Frontend](https://github.com/kharbacheuski/to-do-web-manager/project-code/client)
+6.2 [Backend](https://github.com/kharbacheuski/to-do-web-manager/project-code/server)
