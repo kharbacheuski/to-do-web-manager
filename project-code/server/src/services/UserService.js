@@ -1,5 +1,4 @@
 const { User } = require("../models/user")
-const md5 = require("md5");
 
 class UserService {
     register(input) {
