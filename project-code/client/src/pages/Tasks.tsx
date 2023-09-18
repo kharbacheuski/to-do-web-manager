@@ -1,12 +1,13 @@
 import { Checkbox, Box, Button, Card, CardActions, CardContent, IconButton, TextField, Typography } from "@mui/material"
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Fragment, useEffect, useState, FC } from "react";
+import { Fragment, useEffect, useState, FC, useContext } from "react";
 import { method } from "../api/methods";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import ModalComponent from "../components/utilities/Modal";
 import AlertComponent, { AlertTypes, AlertStateType } from "../components/utilities/Alert";
 import DateSelect from "../components/utilities/DateSelect";
+import { UserContext } from "../Main";
 
 const Form: FC<{
     isCreating: boolean,
@@ -15,11 +16,13 @@ const Form: FC<{
     currentTask: Task,
     userId: number
 }> = ({isCreating, setError, setTasksList, currentTask, userId}) => {
+
+    const user = useContext(UserContext)
     const [formData, setFormData] = useState<Task>({
         id: currentTask.id,
         title: currentTask.title,
         description: currentTask.description,
-        userId,
+        userId: user.user.id,
         createdAt: new Date(),
         isImportant: false
     })
@@ -137,7 +140,7 @@ const Tasks: FC<{logout: () => void, user: User}> = ({logout, user}) => {
         id: 0,
         title: "",
         description: "",
-        userId: 0,
+        userId: user.id,
         createdAt: new Date(),
         isImportant: false
     })

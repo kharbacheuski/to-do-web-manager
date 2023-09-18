@@ -1,14 +1,18 @@
 const app = require("../server")
 const TaskService = require("../services/TaskService");
 require('dotenv').config();
+const jwt_decode = require("jwt-decode");
 
 const taskService = new TaskService()
+const base_url = "/api/task/"
 
-app.get('/api/task/', async (req, res) => {
+app.get(base_url, async (req, res) => {
     try {
-        const allTasks = await taskService.get()
+        const userInfo = jwt_decode(req.headers.authorization.replace("Bearer ", ""));
+
+        const userTasks = await taskService.get(userInfo.id)
         
-        res.status(200).json(allTasks);
+        res.status(200).json(userTasks);
     }
     catch(error) {
         console.error(error);
@@ -16,7 +20,7 @@ app.get('/api/task/', async (req, res) => {
     }
 })
 
-app.post('/api/task/', async (req, res) => {
+app.post(base_url, async (req, res) => {
     try {
         const newTask = await taskService.create(req.body)
         
@@ -28,11 +32,9 @@ app.post('/api/task/', async (req, res) => {
     }
 })
 
-app.delete('/api/task', async (req, res) => {
+app.delete(base_url, async (req, res) => {
     try {
         const id = req.body.id;
-
-        console.log(req.body.data)
 
         if(await taskService.isExist(id)) {
             await taskService.delete(id)
@@ -47,7 +49,7 @@ app.delete('/api/task', async (req, res) => {
     }
 })
 
-app.put('/api/task/', async (req, res) => {
+app.put(base_url, async (req, res) => {
     try {
         const newParams = req.body;
 

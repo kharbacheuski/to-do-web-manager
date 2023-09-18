@@ -1,8 +1,8 @@
 const { Task } = require("../models/task")
 
 class TaskService {
-    get() {
-        return Task.findAll()
+    get(userId) {
+        return Task.findAll({where: {userId: userId}});
     }
     create(input) {
         return Task.create(input)

@@ -15,10 +15,9 @@ class UserService {
     }
 
     isExist(user) {
-        console.log(user.password)
         return User.findOne({ where: {
             username: user.username,
-            passwordHash: md5(user.password)
+            passwordHash: user.passwordHash
         } });
     }
 }

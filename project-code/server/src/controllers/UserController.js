@@ -5,11 +5,11 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const userService = new UserService()
+const base_url = "/api/auth"
 
-app.post('/api/auth/register', async (req, res) => {
+app.post(base_url + '/register', async (req, res) => {
     try {
         const userParams = req.body;
-
         const passwordHash = await md5(userParams.password)
 
         const user = await userService.isExist({
@@ -30,7 +30,6 @@ app.post('/api/auth/register', async (req, res) => {
 
             let token = jwt.sign({ id: newUser.id }, process.env.SECRET_KEY);
             
-
             res.cookie("jwt", token, { maxAge: 1 * 24 * 60 * 60, httpOnly: true });
             console.log("Token: " + token);
         
@@ -43,9 +42,15 @@ app.post('/api/auth/register', async (req, res) => {
     }
 })
 
-app.post('/api/auth/login', async (req, res) => {
+app.post(base_url + '/login', async (req, res) => {
     try {
-        const user = await userService.isExist(req.body);
+        const userParams = req.body;
+        const passwordHash = await md5(userParams.password)
+
+        const user = await userService.isExist({
+            username: userParams.username,
+            passwordHash: passwordHash
+        });
 
         if(user){
             const password_valid = md5(req.body.password) === user.passwordHash;
@@ -72,7 +77,7 @@ app.post('/api/auth/login', async (req, res) => {
 })
 
 
-app.delete('/api/auth/deleteAccount', async (req, res) => {
+app.delete(base_url + '/deleteAccount', async (req, res) => {
     const id = req.body.id;
 
     if(await userService.isExist(id)) {

@@ -35,15 +35,26 @@ const Page: React.FC<{isRegistration: boolean}> = ({isRegistration}) => {
         onSubmit: async (values, helpers): Promise<void> => {
             try {
                 if(isRegistration) {
-                    const {data} = await method.user.register(values);
+                    const {data} = await method.user.register({
+                        username: values.username,
+                        password: values.password
+                    });
 
                     helpers.setStatus({success: true});
                     localStorage.setItem("token", data.token);
 
+                    console.log(data)
                     setUser({...data})
+
+                    setTimeout(() => {
+                        navigate("/")
+                    }, 200)
                 }
                 else {
-                    const {data} = await method.user.login(values);
+                    const {data} = await method.user.login({
+                       username: values.username, 
+                       password: values.password
+                    });
 
                     helpers.setStatus({success: true});
                     localStorage.setItem("token", data.token);
