@@ -2,7 +2,7 @@ import React, { useMemo } from "react"
 import { ThemeProvider, Typography, Box, Container } from "@mui/material"
 import { theme } from "./theme/createTheme"
 import AuthPage from "./pages/AuthPage"
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom"
 import AuthGuard from "./components/utilities/AuthGuard"
 import Tasks from "./pages/Tasks"
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -16,14 +16,22 @@ export const UserContext = React.createContext<UserContextType>(null)
 
 const Main: React.FC<{}> = ({}) => {
 
+    const logout = () => {
+        localStorage.removeItem("token")
+        setUser({
+            id: 0,
+            username: "",
+            password: "",
+            isAuthenticated: false,
+        })
+    }
+
     const [user, setUser] = React.useState<User | null>({
         id: 0,
         username: "",
         password: "",
-        isAuthenticated: false
+        isAuthenticated: false,
     })
-
-    useMemo(() => console.log(user), [user])
 
     return (
         <ThemeProvider theme={theme}>
@@ -34,7 +42,7 @@ const Main: React.FC<{}> = ({}) => {
                         <BrowserRouter>
                             <AuthGuard>
                                 <Routes>
-                                    <Route path="/" element={<Tasks />}/>
+                                    <Route path="/" element={<Tasks logout={logout} user={user} />}/>
                                     <Route path="/login" element={<AuthPage isRegistration={false} />}/>
                                     <Route path="/register" element={<AuthPage isRegistration={true} />}/>
                                 </Routes>

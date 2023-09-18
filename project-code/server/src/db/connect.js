@@ -1,9 +1,11 @@
 const { Sequelize } = require("sequelize");
 
+const password = process.argv[2];
+
 const databaseOptions = {
     name: "tasks_db",
     user: "root",
-    password: "6zv2Clov",
+    password: password,
     dialect: "mysql",
     host: "localhost",
 }

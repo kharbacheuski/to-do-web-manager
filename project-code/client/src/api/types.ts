@@ -12,7 +12,8 @@ type User = {
     id: number,
     username: string,
     password: string,
-    isAuthenticated: boolean
+    isAuthenticated: boolean,
+    exit?: () => void
 }
 
 type Task = {
@@ -20,5 +21,6 @@ type Task = {
     userId?: number,
     title: string,
     description: string,
-    createdAt?: Date
+    createdAt?: Date,
+    isImportant?: boolean
 }

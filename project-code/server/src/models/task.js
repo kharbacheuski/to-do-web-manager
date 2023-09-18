@@ -10,7 +10,8 @@ const Task = sequelize.define('tasks', {
     userId: DataTypes.INTEGER,
     title: DataTypes.STRING,
     description: DataTypes.STRING,
-    createdAt: DataTypes.DATE
+    createdAt: DataTypes.DATE,
+    isImportant: DataTypes.BOOLEAN
 }, {timestamps: false});
 
 module.exports = { Task }

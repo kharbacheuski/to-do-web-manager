@@ -38,7 +38,7 @@ const AuthGuard: React.FC<AuthGuardProps> = (props) => {
   
     useEffect(() => {
         check();
-    }, []);
+    }, [user.isAuthenticated]);
 
     return <Fragment>{children}</Fragment>
 }
