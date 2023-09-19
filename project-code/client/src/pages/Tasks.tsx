@@ -192,7 +192,21 @@ const Tasks: FC<{logout: () => void, user: User}> = ({logout, user}) => {
                 Create a task
             </Button>
         </Box>
-        <Box sx={{margin: "50px 0", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "20px"}}>
+        <Box 
+        sx={{
+            margin: "50px 0", 
+            display: "grid", 
+            gridTemplateColumns: "1fr 1fr 1fr", 
+            gap: "20px",
+
+            "@media screen and (max-width: 991px)": {
+                gridTemplateColumns: "1fr 1fr", 
+            },
+            "@media screen and (max-width: 767px)": {
+                display: "flex",
+                flexDirection: "column", 
+            }
+        }}>
             {tasksList.map(task => {
                 return (
                     <Card sx={{gridColumn: gridSize(task.description.length), display: "flex", flexDirection: "column", justifyContent: "space-between"}}>
@@ -235,7 +249,6 @@ const Tasks: FC<{logout: () => void, user: User}> = ({logout, user}) => {
             isVisible={error.isVisible} 
             onCloseHandle={() => setError({message: "", isVisible: false})}
         />
-
     </Fragment>
     )
 }

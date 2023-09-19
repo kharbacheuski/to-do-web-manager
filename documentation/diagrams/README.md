@@ -1,6 +1,4 @@
 
----
-
 ### 1 Диаграмма классов:
 
 ![classes](./classes/UML-classes.png)
