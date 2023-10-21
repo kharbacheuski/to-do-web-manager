@@ -39,9 +39,9 @@ app.delete(base_url, async (req, res) => {
         if(await taskService.isExist(id)) {
             await taskService.delete(id)
 
-            res.status(200).json({answer: `Task ${id} was deleted`})
+            res.status(200).json(id)
         }
-        else res.status(404).json({error: `Task ${id} not found`})
+        else res.status(404).json(id)
     }
     catch(error) {
         console.error(error);

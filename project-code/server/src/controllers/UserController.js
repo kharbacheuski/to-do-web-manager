@@ -31,7 +31,6 @@ app.post(base_url + '/register', async (req, res) => {
             let token = jwt.sign({ id: newUser.id }, process.env.SECRET_KEY);
             
             res.cookie("jwt", token, { maxAge: 1 * 24 * 60 * 60, httpOnly: true });
-            console.log("Token: " + token);
         
             res.status(201).json(newUser);
         }
@@ -80,10 +79,9 @@ app.post(base_url + '/login', async (req, res) => {
 app.delete(base_url + '/deleteAccount', async (req, res) => {
     const id = req.body.id;
 
-    if(await userService.isExist(id)) {
-        await userService.remove(id)
+    console.log(req.body);
 
-        res.status(200).json({answer: `User ${id} was deleted`})
-    }
-    else res.status(404).json({error: `User ${id} not found`})
+    await userService.remove(id)
+
+    res.status(200).json(id)
 })

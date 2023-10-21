@@ -1,6 +1,7 @@
 import { UserContext } from "../../Main";
 import { useEffect, useCallback, useState, ReactNode, Fragment, useContext } from "react";
 import { useNavigate } from "react-router-dom"
+import jwt_decode  from 'jwt-decode';
 
 interface AuthGuardProps {
     children: ReactNode;
@@ -26,10 +27,14 @@ const AuthGuard: React.FC<AuthGuardProps> = (props) => {
             })
         } 
         else {
+            const user: User = jwt_decode(localStorage.getItem("token"));
+
             setChecked(true)
             setUser(prev => {
                 return {
                     ...prev,
+                    id: user.id,
+                    username: user.username,
                     isAuthenticated: true
                 }
             })
@@ -37,6 +42,7 @@ const AuthGuard: React.FC<AuthGuardProps> = (props) => {
     }, [user.isAuthenticated]);
   
     useEffect(() => {
+        console.log(user)
         check();
     }, [user.isAuthenticated]);
 
