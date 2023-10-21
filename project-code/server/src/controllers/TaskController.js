@@ -1,6 +1,5 @@
 const app = require("../server")
 const TaskService = require("../services/TaskService");
-require('dotenv').config();
 const jwt_decode = require("jwt-decode");
 
 const taskService = new TaskService()

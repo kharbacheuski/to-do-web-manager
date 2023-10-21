@@ -8,9 +8,7 @@ class UserService {
     }
 
     remove(id) {
-        User.destroy({ where: { id: id } }); 
-
-        return id; 
+        return User.destroy({ where: { id: id } });; 
     }
 
     isExist(user) {

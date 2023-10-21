@@ -2,7 +2,6 @@ const app = require("../server")
 const UserService = require("../services/UserService")
 const md5 = require("md5");
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
 
 const userService = new UserService()
 const base_url = "/api/auth"

@@ -12,10 +12,8 @@ class TaskService {
         return existingTask.update(newParams)
     }
 
-    delete(id) {
-        Task.destroy({ where: { id: id } }); 
-
-        return id; 
+    delete(id) { 
+        return Task.destroy({ where: { id: id } });
     }
 
     isExist(id) {

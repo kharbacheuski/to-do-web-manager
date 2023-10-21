@@ -1,9 +1,5 @@
 const md5 = require("md5");
-const {default: axios} = require("axios")
-
-const api = axios.create({
-    baseURL: "http://localhost:5000/api/",
-});
+const api = require("./api")
 
 test('user login', async () => {
     const userCredentials = {
