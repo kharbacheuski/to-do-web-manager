@@ -2,31 +2,31 @@
 
 # Содержание
 
-1. [Описание приложения](#intro)  
-2. [Составляющие проекта](#project_components)  
-   2.1 [База данных](#bd)  
-   2.2 [Backend](#backend)  
-   2.3 [Frontend](#frontend)  
-3. [Основной функционал проекта](#main_functional)  
-4. [Схема взаимодействия компонентов проекта](#project_scheme)
-5. [Графический материал](#graph_materials)  
-   5.1 [Диаграммы](#graph_materials)  
-   5.2 [Скриншоты](#graph_materials)  
-6. [Исходный код проекта](#source_code)  
-   6.1 [Frontend](#source_code)  
-   6.2 [Backend](#source_code)
-   6.3 [Data Base](#source_code)
-7. [Тестирование](#testing) 
-   7.1 [Общая информация и запуск тестов](#testing_info)  
-   7.2 [Результат тестирования](#testing_results)
-   7.3 [Исходный код тестов](#testing_src)
-8. [Нефункциональные требования](#non-functional_requirements) 
-   8.1 [Атрибуты качества](#quality_attributes)  
-   8.1.1 [Требования к удобству использования](#requirements_for_ease_of_use)  
-   8.1.2 [Требования к безопасности](#security_requirements) 
-   8.2 [Внешние интерфейсы](#external_interfaces) 
-   8.3 [Ограничения](#restrictions)
-9. [Запуск проекта](#starting)  
+1. [Описание приложения](#intro)<br/>
+2. [Составляющие проекта](#project_components)<br/>
+   2.1 [База данных](#bd)<br/>
+   2.2 [Backend](#backend)<br/>
+   2.3 [Frontend](#frontend)<br/>
+3. [Основной функционал проекта](#main_functional)<br/>
+4. [Схема взаимодействия компонентов проекта](#project_scheme)<br/>
+5. [Графический материал](#graph_materials)<br/>
+   5.1 [Диаграммы](#graph_materials)<br/>
+   5.2 [Скриншоты](#graph_materials)<br/>
+6. [Исходный код проекта](#source_code)<br/>
+   6.1 [Frontend](#source_code)<br/>
+   6.2 [Backend](#source_code)<br/>
+   6.3 [Data Base](#source_code)<br/>
+7. [Тестирование](#testing)<br/>
+   7.1 [Общая информация и запуск тестов](#testing_info)<br/>
+   7.2 [Результат тестирования](#testing_results)<br/>
+   7.3 [Исходный код тестов](#testing_src)<br/>
+8. [Нефункциональные требования](#non-functional_requirements)<br/>
+   8.1 [Атрибуты качества](#quality_attributes)<br/>
+   8.1.1 [Требования к удобству использования](#requirements_for_ease_of_use)<br/>
+   8.1.2 [Требования к безопасности](#security_requirements)<br/>
+   8.2 [Внешние интерфейсы](#external_interfaces)<br/>
+   8.3 [Ограничения](#restrictions)<br/>
+9. [Запуск проекта](#starting)<br/>
 
 
 <a name="intro"></a>
@@ -87,13 +87,28 @@ Web-приложение "Список дел" предназначено для
 # 5 Графический материал
 
 ## 5.1 Диаграммы
+
+По ссылке ниже представлены 5 типо диаграмм:
+
+- Диаграмма классов
+- Диаграмма активностей
+- Диаграмма последовательностей
+- Диаграмма состояний
+- Диаграмма компонентов
+
 [Диаграммы](https://github.com/kharbacheuski/to-do-web-manager/tree/main/documentation/diagrams/README.md)
+
 ## 5.2 Скриншоты
+
+По ссылке ниже размещены скриншоты основных элементов приложения
+
 [Скриншоты](https://github.com/kharbacheuski/to-do-web-manager/tree/main/documentation/screenshots/README.md)
 
 <a name="source_code" />
 
 # 6 Исходный код проекта
+
+Исходных код проекты включает в себя программы двух главных составляющих проекта: фронтенд и бэкэнд, а также дампы таблиц для MySQL базы данных
 
 ## 6.1 Frontend
 [Frontend](https://github.com/kharbacheuski/to-do-web-manager/tree/main/project-code/client)
@@ -156,7 +171,8 @@ Web-приложение "Список дел" предназначено для
 
 Веб-приложение предоставляет возможность просмотра и редактирования задач только авторизированному пользователю.
 После авторизации пльзователю назначается JWT-токен.
-Для корректной работы приложени все последующие запросы должны содержать этот токен
+Для корректной работы приложени все последующие запросы должны содержать этот токен.
+Пароли пользователей хранятся в таблице в зашифрованном виде
 
 <a name="external_interfaces"/>
 
