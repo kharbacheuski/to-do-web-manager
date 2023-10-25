@@ -18,10 +18,10 @@
    6.3 [Data Base](#source_code)<br/>
 7. [Тестирование](#testing)<br/>
    7.1 [Основные аспекты	тестирования](#testing_aspects)<br/>
-   7.1.1 [Цели] (#testing_goals)<br/>
-   7.1.2 [Виды] (#testing_vars)<br/>
-   7.1.3 [Инструменты] (#testing_instruments)<br/>
-   7.1.4 [Риски] (#testing_risks)<br/>
+   7.1.1 [Цели](#testing_goals)<br/>
+   7.1.2 [Виды](#testing_vars)<br/>
+   7.1.3 [Инструменты](#testing_instruments)<br/>
+   7.1.4 [Риски](#testing_risks)<br/>
    7.2 [Общая информация и запуск тестов](#testing_info)<br/>
    7.3 [Результат тестирования](#testing_results)<br/>
    7.4 [Исходный код тестов](#testing_src)<br/>
